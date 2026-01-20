@@ -1,0 +1,115 @@
+<Window xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+  x:Class="QuizzApp.MainWindow"
+  Title="QuizzApp"
+>
+
+  <StackPanel Margin="20">
+
+    <StackPanel
+      x:Name="AuthPanel" Margin="0 10" IsVisible="True"
+    >
+
+      <TextBlock Margin="0 5" FontSize="18" FontWeight="Bold" TextAlignment="Center">
+        Welcome to the ultimate quizz!
+      </TextBlock>
+
+      <TextBlock Margin="0 5" FontSize="15">Please auth yourself below to play our game!</TextBlock>
+
+      <TextBlock Margin="0 5">Name:</TextBlock>
+      <TextBox x:Name="NameTextBox" Watermark="Please enter your name" />
+
+      <TextBlock Margin="0 5">Email:</TextBlock>
+      <TextBox x:Name="EmailTextBox" Watermark="Please enter your password" />
+
+      <Button x:Name="AuthBtn" Click="AuthHandler" FontWeight="Bold" Margin="0 5">Authenticate</Button>
+      <TextBlock x:Name="Message" Margin="0 5"></TextBlock>
+
+    </StackPanel>
+
+    <StackPanel x:Name="QuizzPanel" Margin="0 10" IsVisible="False">
+
+      <TextBlock
+        x:Name="InstructionBlock"
+        Margin="0 5"
+        FontSize="18"
+        FontWeight="Bold"
+        TextAlignment="Center"
+      >
+        Answer the question for a prize at the end!
+      </TextBlock>
+
+      <StackPanel
+        x:Name="QuestionsPanel" Margin="0 10" IsVisible="False"
+      >
+
+        <TextBlock Margin="0 5">2 + 2 = ?</TextBlock>
+        <RadioButton
+          Tag="Correct"
+          GroupName="First Group"
+          Content="4" />
+        <RadioButton
+          GroupName="First Group"
+          Content="5"
+        />
+        <RadioButton
+          GroupName="First Group"
+          Content="3"
+        />
+
+        <TextBlock Margin="0 5">The capital of Moldova is ?</TextBlock>
+        <RadioButton
+          GroupName="Second Group"
+          Content="United Kingdom" />
+        <RadioButton
+          GroupName="Second Group"
+          Content="Paris" />
+        <RadioButton
+          Tag="Correct"
+          GroupName="Second Group"
+          Content="Chisinau" />
+
+
+        <TextBlock Margin="0 5">The capital of Romanian is ?</TextBlock>
+        <RadioButton
+          GroupName="Third Group"
+          Content="Kiev" />
+        <RadioButton
+          Tag="Correct"
+          GroupName="Third Group"
+          Content="Bucharest" />
+        <RadioButton
+          GroupName="Third Group"
+          Content="Romanian does not have a capital" />
+
+      </StackPanel>
+
+      <TextBlock
+        x:Name="CongratsMsg"
+        Margin="0 5"
+        FontSize="22"
+        FontWeight="Bold"
+        Foreground="Green"
+        TextAlignment="Center">
+      </TextBlock>
+
+      <TextBlock
+        x:Name="FailMsg"
+        Margin="0 5"
+        FontSize="22"
+        FontWeight="Bold"
+        Foreground="Red"
+        TextAlignment="Center">
+      </TextBlock>
+
+
+      <Button x:Name="FinishBtn" Click="FinishHandler" FontWeight="Bold" Margin="0 5">Finish Quizz</Button>
+    </StackPanel>
+
+  </StackPanel>
+
+
+</Window>
