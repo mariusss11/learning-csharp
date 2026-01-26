@@ -15,10 +15,18 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        DataContext = new MainWindowViewModel();
+
+    }
+
+    public class MainWindowViewModel
+    {
+        public string FirstName => "This is the first name!";
     }
 
     public void AuthHandler(object sender, RoutedEventArgs args)
     {
+
         Console.WriteLine("Should handle the auth");
 
         var name = NameTextBox.Text;

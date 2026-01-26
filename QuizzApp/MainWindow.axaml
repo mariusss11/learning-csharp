@@ -7,6 +7,10 @@
   Title="QuizzApp"
 >
 
+  <Design.DataContext>
+    <MainWindowViewModel />
+  </Design.DataContext>
+
   <StackPanel Margin="20">
 
     <StackPanel
@@ -41,6 +45,9 @@
       >
         Answer the question for a prize at the end!
       </TextBlock>
+
+      <TextBox Text="{Binding FirstName, Mode=OneWay}" IsReadOnly="True" />
+
 
       <StackPanel
         x:Name="QuestionsPanel" Margin="0 10" IsVisible="False"
