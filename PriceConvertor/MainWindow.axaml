@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    x:Class="PriceConvertor.MainWindow"
+    Title="PriceConvertor">
+    <StackPanel Margin="20">
+
+
+        <TextBlock Margin="0 5" FontSize="18" FontWeight="Bold" TextAlignment="Center">
+            Welcome to the best Money Exchange!
+        </TextBlock>
+
+        <TextBlock Margin="0 5">Enter the sum you have:</TextBlock>
+        <TextBox x:Name="SumBox" Watermark="100.00" />
+
+
+        <TextBlock Margin="0 5">Enter the currency:</TextBlock>
+        <ComboBox
+            x:Name="CurrencyToConvertFromComboBox" SelectedIndex="0" MaxDropDownHeight="100">
+
+            <ComboBoxItem>MDL</ComboBoxItem>
+            <ComboBoxItem>USD</ComboBoxItem>
+            <ComboBoxItem>EUR</ComboBoxItem>
+        </ComboBox>
+
+
+        <TextBlock Margin="0 5">Enter the currency to convert:</TextBlock>
+        <ComboBox
+            x:Name="CurrencyToConvertComboBox" SelectedIndex="0" MaxDropDownHeight="100">
+            <ComboBoxItem>USD</ComboBoxItem>
+            <ComboBoxItem>MDL</ComboBoxItem>
+            <ComboBoxItem>EUR</ComboBoxItem>
+        </ComboBox>
+
+        <Button x:Name="ConvertBtn" Click="ConvertHandler" FontWeight="Bold" Margin="0 5">
+            Convert
+        </Button>
+
+
+        <TextBlock Margin="0 5">The price after conversion is:</TextBlock>
+        <TextBox x:Name="ConvertedPriceBox" Watermark="100.00" />
+
+
+    </StackPanel>
+</Window>
