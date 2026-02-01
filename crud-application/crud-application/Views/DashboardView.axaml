@@ -1,0 +1,201 @@
+<UserControl
+    Background="#1f0f1e"
+    Height="750"
+    Width="1000"
+    mc:Ignorable="d"
+    x:Class="crud_application.Views.DashboardView"
+    x:DataType="vm:DashboardViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:crud_application.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  Styles  -->
+    <UserControl.Styles>
+        <!--  Glass Card  -->
+        <Style Selector="Border.glass-card">
+            <Setter Property="Background">
+                <LinearGradientBrush EndPoint="100%,100%" StartPoint="0%,0%">
+                    <GradientStop Color="#25ffffff" Offset="0" />
+                    <GradientStop Color="#15ffffff" Offset="1" />
+                </LinearGradientBrush>
+            </Setter>
+            <Setter Property="BorderBrush" Value="#40ffffff" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="Effect">
+                <DropShadowEffect
+                    BlurRadius="20"
+                    Color="#30000000"
+                    OffsetY="8" />
+            </Setter>
+        </Style>
+
+        <!--  Text  -->
+        <Style Selector="TextBlock.title">
+            <Setter Property="Foreground" Value="#f8fafc" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+
+        <Style Selector="TextBlock.primary">
+            <Setter Property="Foreground" Value="#f1f5f9" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+
+        <!--  Inputs  -->
+        <Style Selector="TextBox.modern-input">
+            <Setter Property="Background">
+                <LinearGradientBrush StartPoint="0%,0%">
+                    <GradientStop Color="#25354151" Offset="0" />
+                    <GradientStop Color="#35474151" Offset="1" />
+                </LinearGradientBrush>
+            </Setter>
+            <Setter Property="Foreground" Value="#f8f1fc" />
+            <Setter Property="BorderBrush" Value="#6b7280" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="12,10" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <!--  Buttons  -->
+        <Style Selector="Button.primary-btn">
+            <Setter Property="Background">
+                <LinearGradientBrush EndPoint="100%,100%" StartPoint="0%,0%">
+                    <GradientStop Color="#3b82f6" Offset="0" />
+                    <GradientStop Color="#1d4ed8" Offset="1" />
+                </LinearGradientBrush>
+            </Setter>
+            <Setter Property="Foreground" Value="#fff" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Padding" Value="10,6" />
+        </Style>
+
+        <Style Selector="Button.delete-btn">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="#ef4444" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="8,5" />
+        </Style>
+    </UserControl.Styles>
+
+    <!--  Main Grid: Form left, Table right  -->
+    <Grid ColumnDefinitions="1.5*, 3.8*" Margin="20">
+        <!--  Left: Form  -->
+        <Border Classes="glass-card">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Spacing="15">
+                    <TextBlock Classes="title" Text="Customer Form" />
+
+                    <StackPanel Spacing="8">
+                        <TextBlock Classes="primary" Text="First Name" />
+                        <TextBox
+                            Classes="modern-input"
+                            Text="{Binding FirstName}"
+                            Watermark="Enter first name" />
+                    </StackPanel>
+
+                    <StackPanel Spacing="8">
+                        <TextBlock Classes="primary" Text="Last Name" />
+                        <TextBox
+                            Classes="modern-input"
+                            Text="{Binding LastName}"
+                            Watermark="Enter last name" />
+                    </StackPanel>
+
+                    <StackPanel Spacing="8">
+                        <TextBlock Classes="primary" Text="Email" />
+                        <TextBox
+                            Classes="modern-input"
+                            Text="{Binding Email}"
+                            Watermark="Enter email" />
+                    </StackPanel>
+
+                    <StackPanel Spacing="8">
+                        <TextBlock Classes="primary" Text="Phone Number" />
+                        <TextBox
+                            Classes="modern-input"
+                            Text="{Binding PhoneNumber}"
+                            Watermark="Enter phone number" />
+                    </StackPanel>
+
+                    <StackPanel Spacing="8">
+                        <TextBlock Classes="primary" Text="City" />
+                        <TextBox
+                            Classes="modern-input"
+                            Text="{Binding City}"
+                            Watermark="Enter city" />
+                    </StackPanel>
+
+                    <StackPanel Spacing="8">
+                        <TextBlock Classes="primary" Text="Address" />
+                        <TextBox
+                            Classes="modern-input"
+                            Text="{Binding Address}"
+                            Watermark="Enter address" />
+                    </StackPanel>
+
+                    <!--  Buttons  -->
+                    <StackPanel
+                        Margin="0,10,0,0"
+                        Orientation="Vertical"
+                        Spacing="10">
+                        <Button
+                            Classes="primary-btn"
+                            Command="{Binding SaveCustomerCommand}"
+                            Content="{Binding SaveBtnState}"
+                            HorizontalContentAlignment="Center"
+                            Width="100" />
+                        <Button
+                            Classes="delete-btn"
+                            Command="{Binding DeleteCustomerCommand}"
+                            Content="Delete"
+                            HorizontalContentAlignment="Center"
+                            Width="100" />
+                        <Button
+                            Classes="primary-btn"
+                            Command="{Binding ClearFieldsCommand}"
+                            Content="Clear"
+                            HorizontalContentAlignment="Center"
+                            Width="100" />
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <!--  Right: DataGrid  -->
+        <Border
+            Classes="glass-card"
+            Grid.Column="1"
+            Margin="20,0,0,0">
+            <Grid RowDefinitions="Auto, *">
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    Margin="0,0,0,10"
+                    Orientation="Horizontal">
+                    <Button
+                        Classes="primary-btn"
+                        Command="{Binding RefreshCustomersCommand}"
+                        Content="Refresh"
+                        Width="100" />
+                </StackPanel>
+
+                <DataGrid
+                    AutoGenerateColumns="True"
+                    FontSize="14"
+                    Grid.Row="1"
+                    GridLinesVisibility="Horizontal"
+                    HeadersVisibility="Column"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding Customers}"
+                    RowHeight="30"
+                    SelectedItem="{Binding SelectedCustomer}" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

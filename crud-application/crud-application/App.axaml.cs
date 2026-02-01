@@ -38,6 +38,7 @@ public partial class App : Application
 
             var vm = services.GetRequiredService<MainWindowViewModel>();
 
+
             using (var scope = services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();

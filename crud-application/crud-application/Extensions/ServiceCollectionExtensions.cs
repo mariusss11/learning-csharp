@@ -11,7 +11,7 @@ public static class ServiceCollectionExtensions
     public static void AddCommonServices(this IServiceCollection collection)
     {
         
-        // Register DB Context with PostgreSQL provider
+        // Register DB Context with PostgresSQL provider
         collection.AddDbContext<ApplicationDbContext>(options =>
         {
             var connectionString = ConfigurationHelper.GetConnectionString("DefaultConnection");
@@ -19,10 +19,13 @@ public static class ServiceCollectionExtensions
         });
         
         // Register View Models
-        collection.AddTransient<MainWindowViewModel>();
-            
+        collection.AddSingleton<MainWindowViewModel>();
+        collection.AddTransient<DashboardViewModel>();
+        collection.AddTransient<LoginViewModel>();
+        
         // Register Services
         collection.AddTransient<ICustomerService, CustomerService>();
+        collection.AddTransient<ILoginService, LoginService>();
         
     }
 }
