@@ -264,7 +264,7 @@
                                             Classes="delete-btn"
                                             Command="{Binding $parent[ListBox].((vm:ContactManagerViewModel)DataContext).DeleteContactCommand}"
                                             CommandParameter="{Binding}"
-                                            Content="🗑️"
+                                            Content="🗑"
                                             FontSize="18"
                                             Grid.Column="1"
                                             Height="35"

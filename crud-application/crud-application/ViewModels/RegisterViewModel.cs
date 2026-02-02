@@ -6,17 +6,21 @@ using crud_application.Services;
 
 namespace crud_application.ViewModels;
 
-public partial class LoginViewModel : ViewModelBase
+public partial class RegisterViewModel : ViewModelBase
 {
+    
     private readonly IAuthService _authService;
     private readonly MainWindowViewModel _mainWindowVm;
     private readonly ICustomerService _customerService;
+
     
     [ObservableProperty] private string _errorMessage;
     [ObservableProperty] private string _username;
+    [ObservableProperty] private string _fullName;
     [ObservableProperty] private string _password;
+
     
-    public LoginViewModel(MainWindowViewModel mainWindowVm, IAuthService authService, ICustomerService customerService)
+    public RegisterViewModel(MainWindowViewModel mainWindowVm, IAuthService authService, ICustomerService customerService)
     {
         _mainWindowVm = mainWindowVm;
         _authService = authService;
@@ -24,9 +28,9 @@ public partial class LoginViewModel : ViewModelBase
     }
     
     [RelayCommand]
-    private async Task Login()
+    private async Task Register()
     {
-        var user = await _authService.AuthenticateAsync(Username, Password);
+        var user = await _authService.RegisterUserAsync(Username, FullName, Password);
 
         if (user != null)
         {
@@ -38,10 +42,10 @@ public partial class LoginViewModel : ViewModelBase
             Console.Write("Username or password is incorrect.");
         }
     }
-    
+
     [RelayCommand]
-    private void ChangeToRegister()
+    private void ChangeToLogin()
     {
-        _mainWindowVm.ShowRegister();
+        _mainWindowVm.ShowLogin();
     }
 }

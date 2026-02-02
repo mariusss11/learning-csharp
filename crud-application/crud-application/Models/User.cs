@@ -16,6 +16,10 @@ namespace crud_application.Models
         [Required]
         [Column("email")]
         public string Email { get; set; } = string.Empty;
+        
+        [Required]
+        [Column("fullname")]
+        public string FullName { get; set; } = string.Empty;
 
         [Required]
         [Column("password")]

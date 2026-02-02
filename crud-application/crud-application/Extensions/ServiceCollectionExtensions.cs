@@ -22,10 +22,11 @@ public static class ServiceCollectionExtensions
         collection.AddSingleton<MainWindowViewModel>();
         collection.AddTransient<DashboardViewModel>();
         collection.AddTransient<LoginViewModel>();
+        collection.AddTransient<RegisterViewModel>();
         
         // Register Services
         collection.AddTransient<ICustomerService, CustomerService>();
-        collection.AddTransient<ILoginService, LoginService>();
+        collection.AddTransient<IAuthService, AuthService>();
         
     }
 }
