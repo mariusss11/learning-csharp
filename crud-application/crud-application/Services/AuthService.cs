@@ -38,7 +38,7 @@ public class AuthService : IAuthService
     public async Task<User> RegisterUserAsync(string username, string fullName, string password)
     {
         // Check if the email is valid 
-        IsEmailValid(username);
+        await IsEmailValidAsync(username);
 
         // Create the new user
         String hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, 12);
@@ -68,7 +68,7 @@ public class AuthService : IAuthService
         return user;
     }
     
-    public async void IsEmailValid(string email)
+    public async Task IsEmailValidAsync(string email)
     {
         var user = await _context.Users
             .FirstOrDefaultAsync(u => u.Email.Trim().ToLower() == email.Trim().ToLower());
@@ -76,5 +76,6 @@ public class AuthService : IAuthService
         if (user != null) 
             throw new InvalidOperationException($"User with email '{email}' already exists.");
     }
+
 
 }
