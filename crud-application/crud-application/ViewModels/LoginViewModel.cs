@@ -8,40 +8,57 @@ namespace crud_application.ViewModels;
 
 public partial class LoginViewModel : ViewModelBase
 {
+    
+    private readonly MainWindowViewModel _mainWindow;
     private readonly IAuthService _authService;
-    private readonly MainWindowViewModel _mainWindowVm;
-    private readonly ICustomerService _customerService;
-    
-    [ObservableProperty] private string _errorMessage;
-    [ObservableProperty] private string _username;
-    [ObservableProperty] private string _password;
-    
-    public LoginViewModel(MainWindowViewModel mainWindowVm, IAuthService authService, ICustomerService customerService)
+
+    [ObservableProperty]
+    private string _username;
+
+    [ObservableProperty]
+    private string _password;
+
+    [ObservableProperty]
+    private string _errorMessage;
+
+    public LoginViewModel(MainWindowViewModel mainWindow, IAuthService authService)
     {
-        _mainWindowVm = mainWindowVm;
+        _mainWindow = mainWindow;
         _authService = authService;
-        _customerService = customerService;
     }
-    
+
     [RelayCommand]
     private async Task Login()
     {
-        var user = await _authService.AuthenticateAsync(Username, Password);
+        try
+        {
+            // Trim inputs
+            await _authService.AuthenticateAsync(
+                Username.Trim(), 
+                Password
+            );
 
-        if (user != null)
-        {
-            Console.Write("Logging in...");
-            _mainWindowVm.ShowDashboard();
+            // Clear error if login successful
+            ErrorMessage = string.Empty;
+
+            // Navigate to dashboard or next page
+            _mainWindow.ShowDashboard();
         }
-        else
+        catch (InvalidOperationException ex)
         {
-            Console.Write("Username or password is incorrect.");
+            // This catches your "User not found" or "Email already exists" errors
+            ErrorMessage = "Invalid username or password.";
+        }
+        catch (Exception)
+        {
+            // Generic error for unexpected issues
+            ErrorMessage = "An unexpected error occurred. Please try again.";
         }
     }
-    
+
     [RelayCommand]
     private void ChangeToRegister()
     {
-        _mainWindowVm.ShowRegister();
+        _mainWindow.ShowRegister();
     }
 }

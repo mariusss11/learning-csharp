@@ -24,5 +24,9 @@ namespace crud_application.Models
         [Required]
         [Column("password")]
         public string Password { get; set; } = string.Empty;
+        
+        [Required]
+        [Column("role")]
+        public string Role { get; set; } = string.Empty;
     }
 }

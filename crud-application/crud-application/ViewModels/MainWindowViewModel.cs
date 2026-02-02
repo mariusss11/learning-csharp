@@ -16,7 +16,7 @@ public partial class MainWindowViewModel : ViewModelBase
         _authService = authService;
 
         // Start with login view
-        CurrentViewModel = new LoginViewModel(this, _authService, _customerService);
+        CurrentViewModel = new LoginViewModel(this, _authService);
     }
 
     public void ShowDashboard()
@@ -26,7 +26,7 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public void ShowLogin()
     {
-        CurrentViewModel = new LoginViewModel(this, _authService, _customerService);
+        CurrentViewModel = new LoginViewModel(this, _authService);
     }
     
     public void ShowRegister()

@@ -30,16 +30,24 @@ public partial class RegisterViewModel : ViewModelBase
     [RelayCommand]
     private async Task Register()
     {
-        var user = await _authService.RegisterUserAsync(Username, FullName, Password);
-
-        if (user != null)
+        try
         {
-            Console.Write("Logging in...");
+            var user = await _authService.RegisterUserAsync(
+                Username.Trim(), FullName.Trim(), Password
+            );
+
+            ErrorMessage = string.Empty;
+
             _mainWindowVm.ShowDashboard();
         }
-        else
+        catch (InvalidOperationException ex)
         {
-            Console.Write("Username or password is incorrect.");
+            ErrorMessage = "Invalid username or password";
+        }
+        catch (Exception)
+        {
+            // Generic error for unexpected issues
+            ErrorMessage = "An unexpected error occurred. Please try again.";
         }
     }
 

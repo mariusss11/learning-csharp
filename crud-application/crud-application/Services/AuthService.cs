@@ -45,8 +45,8 @@ public class AuthService : IAuthService
         
         var newUser = _context.Users.Add(new User
         {
-            Email = username,
-            FullName = fullName,
+            Email = username.Trim(),
+            FullName = fullName.Trim(),
             Password = hashedPassword
         });
 

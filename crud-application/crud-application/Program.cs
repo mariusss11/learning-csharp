@@ -27,8 +27,4 @@ sealed class Program
             .LogToTrace();
     
     
-    // TODO: 
-    // 1. Create the Customers relation in the database 
-    // 2. Add info 
-    
 }

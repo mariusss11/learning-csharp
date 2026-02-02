@@ -1,6 +1,6 @@
 <Window
     Height="750"
-    Title="CRUD App"
+    Title="Customer Manager Application"
     Width="1000"
     x:Class="crud_application.Views.MainWindow"
     x:DataType="global:MainWindowViewModel"

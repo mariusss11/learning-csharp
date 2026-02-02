@@ -142,7 +142,7 @@
                 </StackPanel>
 
                 <!--  Error  -->
-                <TextBlock Classes="error" Text="Error Message" />
+                <TextBlock Classes="error" Text="{Binding ErrorMessage}" />
 
                 <!--  Actions  -->
                 <StackPanel HorizontalAlignment="Center" Spacing="12">
