@@ -4,7 +4,12 @@
     <option name="projectPerEditor">
       <map>
         <entry key="MathApp/App.axaml" value="MathApp/MathApp.csproj" />
+        <entry key="MathApp/Views/CircleView.axaml" value="MathApp/MathApp.csproj" />
+        <entry key="MathApp/Views/ExitConfirmationView.axaml" value="MathApp/MathApp.csproj" />
         <entry key="MathApp/Views/MainWindow.axaml" value="MathApp/MathApp.csproj" />
+        <entry key="MathApp/Views/MyDialogView.axaml" value="MathApp/MathApp.csproj" />
+        <entry key="MathApp/Views/RectangleView.axaml" value="MathApp/MathApp.csproj" />
+        <entry key="MathApp/Views/TriangleView.axaml" value="MathApp/MathApp.csproj" />
       </map>
     </option>
   </component>

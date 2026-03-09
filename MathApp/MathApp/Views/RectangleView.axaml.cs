@@ -1,13 +1,7 @@
-using Avalonia;
+// Views/RectangleView.axaml.cs
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-
 namespace MathApp.Views;
-
-public partial class RectangleView : Window
+public partial class RectangleView : UserControl
 {
-    public RectangleView()
-    {
-        InitializeComponent();
-    }
+    public RectangleView() => InitializeComponent();
 }

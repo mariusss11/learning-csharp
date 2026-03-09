@@ -1,13 +1,7 @@
-using Avalonia;
+// Views/CircleView.axaml.cs
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-
 namespace MathApp.Views;
-
-public partial class CircleView : Window
+public partial class CircleView : UserControl
 {
-    public CircleView()
-    {
-        InitializeComponent();
-    }
+    public CircleView() => InitializeComponent();
 }

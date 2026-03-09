@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using crud_application.Models;
@@ -14,7 +15,7 @@ public partial class DashboardViewModel : ViewModelBase
 {
     private readonly ICustomerService _customerService;
     [ObservableProperty] private ObservableCollection<Customer> _customers;
-
+    
     [ObservableProperty] private Customer? _selectedCustomer;
     
     [ObservableProperty] private string _firstName;
@@ -30,40 +31,32 @@ public partial class DashboardViewModel : ViewModelBase
 
     public DashboardViewModel(ICustomerService customerService)
     {
-        _customerService = customerService;
+        _customerService = customerService ?? throw new ArgumentNullException(nameof(customerService));
         _customers = new ObservableCollection<Customer>();
-        LoadCustomerData();
+        _ = LoadCustomerData();
     }
-
-    public DashboardViewModel() : this(null) { }
 
     private async Task LoadCustomerData()
     {
-        try
-        {
-            IsLoading = true;
-            
-            await Task.Delay(2000);
-            
-            Customers.Clear();
-            var allCustomersAsync = await _customerService.GetAllCustomersAsync();
-            foreach (var customer in allCustomersAsync)
-            {
-                Customers.Add(customer);
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-        finally
-        {
-            IsLoading = false;
-        }
-        
-    }
+        IsLoading = true;
 
+        var allCustomers = await _customerService.GetAllCustomersAsync();
+
+        Dispatcher.UIThread.Post(() =>
+        {
+            Console.WriteLine("Adding customers to collection...");
+            Customers.Clear();
+            foreach (var c in allCustomers)
+            {
+                Console.WriteLine($"Adding {c.FirstName} {c.LastName}");
+                Customers.Add(c);
+            }
+        });
+
+        IsLoading = false;
+    }
+    
+    
     [RelayCommand]
     private async Task SaveCustomer()
     {

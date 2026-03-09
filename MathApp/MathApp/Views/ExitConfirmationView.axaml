@@ -1,9 +1,59 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="MathApp.Views.ExitConfirmationView"
-        Title="ExitConfirmationView">
-    Welcome to Avalonia!
-</Window>
+<!--  Views/ExitConfirmView.axaml  -->
+<UserControl
+    x:Class="MathApp.Views.ExitConfirmView"
+    x:DataType="vm:ExitConfirmViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:vm="using:MathApp.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Border
+        Background="White"
+        BoxShadow="0 8 30 0 #44000000"
+        CornerRadius="12"
+        HorizontalAlignment="Center"
+        Padding="28"
+        VerticalAlignment="Center"
+        Width="360">
+
+        <StackPanel Spacing="16">
+            <TextBlock
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="Black"
+                Text="Confirmare ieșire" />
+            <TextBlock
+                FontSize="13"
+                Foreground="Black"
+                Text="Sigur doriți să ieșiți din aplicație?"
+                TextWrapping="Wrap" />
+
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                Spacing="10">
+
+
+                <Border
+                    Background="Black"
+                    CornerRadius="8"
+                    HorizontalAlignment="Right">
+                    <Button
+                        Command="{Binding CancelCommand}"
+                        Content="Anulează"
+                        Foreground="White" />
+                </Border>
+
+                <Border
+                    Background="Black"
+                    CornerRadius="8"
+                    HorizontalAlignment="Right">
+                    <Button
+                        Command="{Binding ConfirmCommand}"
+                        Content="Ieșire"
+                        Foreground="White"
+                        HorizontalAlignment="Right" />
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

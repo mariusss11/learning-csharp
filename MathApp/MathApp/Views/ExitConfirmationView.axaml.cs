@@ -1,13 +1,7 @@
-using Avalonia;
+// Views/ExitConfirmView.axaml.cs
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-
 namespace MathApp.Views;
-
-public partial class ExitConfirmationView : Window
+public partial class ExitConfirmView : UserControl
 {
-    public ExitConfirmationView()
-    {
-        InitializeComponent();
-    }
+    public ExitConfirmView() => InitializeComponent();
 }

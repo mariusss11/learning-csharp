@@ -1,9 +1,84 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="MathApp.Views.RectangleView"
-        Title="RectangleView">
-    Welcome to Avalonia!
-</Window>
+<!--  Views/RectangleView.axaml  -->
+<UserControl
+    x:Class="MathApp.Views.RectangleView"
+    x:DataType="vm:RectangleViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:vm="using:MathApp.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Border
+        Background="White"
+        BoxShadow="0 8 30 0 #44000000"
+        CornerRadius="12"
+        HorizontalAlignment="Center"
+        Padding="28"
+        VerticalAlignment="Center"
+        Width="400">
+
+        <StackPanel Spacing="14">
+            <TextBlock
+                FontSize="20"
+                FontWeight="Bold"
+                Text="Dreptunghi / Pătrat" />
+            <TextBlock
+                FontSize="13"
+                Foreground="Gray"
+                Text="Introduceți dimensiunile:" />
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto">
+                <TextBlock
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Margin="0,0,12,8"
+                    Text="Lățime:"
+                    VerticalAlignment="Center" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="0,0,0,8"
+                    Text="{Binding InputWidth}"
+                    Watermark="ex: 5.0" />
+
+                <TextBlock
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Margin="0,0,12,0"
+                    Text="Înălțime:"
+                    VerticalAlignment="Center" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Text="{Binding InputHeight}"
+                    Watermark="ex: 3.0" />
+            </Grid>
+
+            <Button
+                Command="{Binding CalculateCommand}"
+                Content="Calculează"
+                HorizontalAlignment="Stretch" />
+
+            <Border
+                Background="#F1F8E9"
+                CornerRadius="8"
+                IsVisible="{Binding HasResult}"
+                Padding="14">
+                <TextBlock
+                    FontSize="13"
+                    Text="{Binding Result}"
+                    TextWrapping="Wrap" />
+            </Border>
+
+
+            <Border
+                Background="Black"
+                CornerRadius="8"
+                HorizontalAlignment="Right">
+                <Button
+                    Command="{Binding CloseCommand}"
+                    Content="Închide"
+                    HorizontalAlignment="Right" />
+            </Border>
+
+        </StackPanel>
+    </Border>
+</UserControl>

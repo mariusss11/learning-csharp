@@ -1,9 +1,105 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="MathApp.Views.TriangleView"
-        Title="TriangleView">
-    Welcome to Avalonia!
-</Window>
+<!--  Views/TriangleView.axaml  -->
+<UserControl
+    x:Class="MathApp.Views.TriangleView"
+    x:DataType="vm:TriangleViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:vm="using:MathApp.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Border
+        Background="White"
+        BoxShadow="0 8 30 0 #44000000"
+        CornerRadius="12"
+        HorizontalAlignment="Center"
+        Padding="28"
+        VerticalAlignment="Center"
+        Width="420">
+
+        <StackPanel Spacing="14">
+            <TextBlock
+                FontSize="20"
+                FontWeight="Bold"
+                Foreground="Gray"
+                Text="Triunghi" />
+            <TextBlock
+                FontSize="13"
+                Foreground="Gray"
+                Text="Introduceți cele 3 laturi:" />
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
+                <TextBlock
+                    Foreground="Gray"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Margin="0,0,12,8"
+                    Text="Latura a:"
+                    VerticalAlignment="Center" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="0,0,0,8"
+                    Text="{Binding InputA}"
+                    Watermark="ex: 3.5" />
+
+                <TextBlock
+                    Foreground="Gray"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Margin="0,0,12,8"
+                    Text="Latura b:"
+                    VerticalAlignment="Center" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="0,0,0,8"
+                    Text="{Binding InputB}"
+                    Watermark="ex: 4.0" />
+
+                <TextBlock
+                    Foreground="Gray"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Margin="0,0,12,0"
+                    Text="Latura c:"
+                    VerticalAlignment="Center" />
+                <TextBox
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Text="{Binding InputC}"
+                    Watermark="ex: 5.0" />
+            </Grid>
+
+            <Border Background="DimGray" CornerRadius="8">
+
+                <Button
+                    Command="{Binding CalculateCommand}"
+                    Content="Calculează"
+                    Foreground="Black"
+                    HorizontalAlignment="Stretch" />
+
+            </Border>
+
+
+            <Border
+                Background="DarkGray"
+                CornerRadius="8"
+                IsVisible="{Binding HasResult}"
+                Padding="14">
+                <TextBlock
+                    FontSize="13"
+                    Text="{Binding Result}"
+                    TextWrapping="Wrap" />
+            </Border>
+
+            <Border
+                Background="Black"
+                CornerRadius="8"
+                HorizontalAlignment="Right">
+                <Button
+                    Command="{Binding CloseCommand}"
+                    Content="Închide"
+                    HorizontalAlignment="Right" />
+            </Border>
+        </StackPanel>
+    </Border>
+</UserControl>

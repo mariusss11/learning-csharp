@@ -185,16 +185,38 @@
                         Width="100" />
                 </StackPanel>
 
+                <TextBlock Text="Count: " />
+                <TextBlock Grid.Row="1" Text="{Binding Customers.Count}" />
+
+                <DataGrid
+                    GridLinesVisibility="Horizontal"
+                    HeadersVisibility="Column"
+                    IsReadOnly="True"
+                    ItemsSource="{Binding Customers}"
+                    SelectedItem="{Binding SelectedCustomer}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding FirstName}" Header="First Name" />
+                        <DataGridTextColumn Binding="{Binding LastName}" Header="Last Name" />
+                        <DataGridTextColumn Binding="{Binding Email}" Header="Email" />
+                        <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Phone" />
+                        <DataGridTextColumn Binding="{Binding City}" Header="City" />
+                        <DataGridTextColumn Binding="{Binding Address}" Header="Address" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
                 <DataGrid
                     AutoGenerateColumns="True"
                     FontSize="14"
                     Grid.Row="1"
                     GridLinesVisibility="Horizontal"
                     HeadersVisibility="Column"
+                    HorizontalAlignment="Stretch"
                     IsReadOnly="True"
                     ItemsSource="{Binding Customers}"
                     RowHeight="30"
-                    SelectedItem="{Binding SelectedCustomer}" />
+                    SelectedItem="{Binding SelectedCustomer}"
+                    VerticalAlignment="Stretch" />
             </Grid>
         </Border>
     </Grid>

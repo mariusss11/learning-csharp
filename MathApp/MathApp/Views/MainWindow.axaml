@@ -1,0 +1,166 @@
+<!--  Views/MainWindow.axaml  -->
+<Window
+    Height="500"
+    MinHeight="400"
+    MinWidth="500"
+    Title="MathApp — Lecție de Matematică"
+    Width="700"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d"
+    x:Class="MathApp.Views.MainWindow"
+    x:DataType="vm:MainWindowViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:MathApp.Views"
+    xmlns:vm="using:MathApp.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <!--  Main Content  -->
+        <ScrollViewer>
+            <StackPanel Margin="40" Spacing="20">
+
+                <!--  Header  -->
+                <Border
+                    Background="#1565C0"
+                    CornerRadius="10"
+                    Padding="24,20">
+                    <StackPanel Spacing="8">
+                        <TextBlock
+                            FontSize="22"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Text="Bine ați venit la lecția de matematică!"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="14"
+                            Foreground="#BBDEFB"
+                            Text="Azi vom rezolva aria uneia dintre figurile alese:"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+
+                <!--  Figure Buttons  -->
+                <TextBlock
+                    FontSize="16"
+                    FontWeight="SemiBold"
+                    Text="Alegeți o figură geometrică:" />
+
+                <WrapPanel
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center">
+
+                    <Button
+                        Command="{Binding OpenTriangleCommand}"
+                        CornerRadius="10"
+                        Height="110"
+                        Margin="8"
+                        Width="170">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            Spacing="8"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                HorizontalAlignment="Center"
+                                Text="Triunghi" />
+                            <TextBlock
+                                FontSize="11"
+                                Foreground="Gray"
+                                HorizontalAlignment="Center"
+                                Text="Arie, natură, validare" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Command="{Binding OpenRectangleCommand}"
+                        CornerRadius="10"
+                        Height="110"
+                        Margin="8"
+                        Width="170">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            Spacing="8"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                HorizontalAlignment="Center"
+                                Text="Dreptunghi" />
+                            <TextBlock
+                                FontSize="11"
+                                Foreground="Gray"
+                                HorizontalAlignment="Center"
+                                Text="Arie și perimetru" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button
+                        Command="{Binding OpenCircleCommand}"
+                        CornerRadius="10"
+                        Height="110"
+                        Margin="8"
+                        Width="170">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            Spacing="8"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                HorizontalAlignment="Center"
+                                Text="Cerc" />
+                            <TextBlock
+                                FontSize="11"
+                                Foreground="Gray"
+                                HorizontalAlignment="Center"
+                                Text="Arie și circumferință" />
+                        </StackPanel>
+                    </Button>
+
+                </WrapPanel>
+
+                <!--  Info box  -->
+                <Border
+                    Background="#E3F2FD"
+                    CornerRadius="8"
+                    Padding="16">
+                    <TextBlock
+                        FontSize="13"
+                        Foreground="#1565C0"
+                        TextWrapping="Wrap">
+                        <Run FontWeight="SemiBold">Indiciu triunghi:</Run>
+                        Trei numere pot fi laturile unui triunghi dacă sunt pozitive și suma oricăror două este mai mare decât a treia. Dacă suma pătratelor a două laturi este egală cu pătratul laturei a treia, triunghiul este dreptunghic.</TextBlock>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!--  Dialog Overlay  -->
+        <Grid Background="#AA000000" IsVisible="{Binding IsDialogOpen}">
+            <ContentControl Content="{Binding CurrentDialog}">
+                <ContentControl.DataTemplates>
+                    <DataTemplate DataType="{x:Type vm:TriangleViewModel}">
+                        <views:TriangleView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:RectangleViewModel}">
+                        <views:RectangleView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:CircleViewModel}">
+                        <views:CircleView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:ExitConfirmViewModel}">
+                        <views:ExitConfirmView />
+                    </DataTemplate>
+                </ContentControl.DataTemplates>
+            </ContentControl>
+        </Grid>
+    </Grid>
+</Window>

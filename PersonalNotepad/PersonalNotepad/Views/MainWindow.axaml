@@ -1,0 +1,112 @@
+<Window
+    Background="White"
+    Height="450"
+    Icon="/Assets/avalonia-logo.ico"
+    Title="PersonalNotepad"
+    TransparencyLevelHint="AcrylicBlur"
+    Width="800"
+    d:DesignHeight="450"
+    d:DesignWidth="500"
+    mc:Ignorable="d"
+    x:Class="PersonalNotepad.Views.MainWindow"
+    x:DataType="vm:MainWindowViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:PersonalNotepad.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+
+    <Design.DataContext>
+        <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel>
+
+        <!--  Header  -->
+        <StackPanel Background="DarkGray" DockPanel.Dock="Top">
+            <Grid ColumnDefinitions="*,*,*">
+                <Grid ColumnDefinitions="*,*,*" Margin="10">
+
+                    <Menu DockPanel.Dock="Top">
+                        <MenuItem Header="_File">
+                            <MenuItem Header="_New tab..." />
+                            <MenuItem Header="_New window..." />
+                            <MenuItem Command="{Binding OpenFileCommand}" Header="_Open..." />
+                            <MenuItem Command="{Binding SaveFileCommand}" Header="_Save..." />
+                            <!-- <MenuItem Command="{Binding SaveFileButtonCommand}" Header="_Save as..." /> -->
+                            <MenuItem Header="_Save all..." />
+                            <Separator />
+                            <MenuItem Header="_Print..." />
+                            <Separator />
+                            <MenuItem Header="_Close window" />
+                            <MenuItem Command="{Binding ExitCommand}" Header="_Exit" />
+                        </MenuItem>
+                    </Menu>
+
+                    <Menu DockPanel.Dock="Top" Grid.Column="1">
+                        <MenuItem Header="_Edit">
+                            <MenuItem Header="Copy" />
+                            <MenuItem Header="Paste" />
+                        </MenuItem>
+                    </Menu>
+
+                    <Menu DockPanel.Dock="Top" Grid.Column="2">
+                        <MenuItem Header="_View">
+                            <MenuItem Header="_Zoom in..." />
+                            <MenuItem Header="_Zoom out..." />
+                        </MenuItem>
+                    </Menu>
+
+                </Grid>
+
+                <Grid ColumnDefinitions="*,*,*" Grid.Column="1" />
+
+            </Grid>
+        </StackPanel>
+
+        <!--  Footer  -->
+        <StackPanel Background="Gray" DockPanel.Dock="Bottom">
+            <Grid ColumnDefinitions="*,*,*">
+
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Padding="10"
+                    Text="999 Characters" />
+                <TextBlock
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    Padding="10"
+                    Text="Text" />
+
+                <TextBlock
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    Padding="10"
+                    Text="UTF-8" />
+
+            </Grid>
+        </StackPanel>
+
+        <!--  Main Content  -->
+        <Grid Margin="10" RowDefinitions="Auto,*">
+
+            <TextBox
+                Background="Transparent"
+                Height="350"
+                Name="MainTextBox"
+                Padding="10"
+                Text="{Binding TextBoxContent}" />
+
+        </Grid>
+
+
+    </DockPanel>
+
+
+</Window>

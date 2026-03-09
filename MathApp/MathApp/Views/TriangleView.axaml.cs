@@ -1,13 +1,7 @@
-using Avalonia;
+// Views/TriangleView.axaml.cs
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-
 namespace MathApp.Views;
-
-public partial class TriangleView : Window
+public partial class TriangleView : UserControl
 {
-    public TriangleView()
-    {
-        InitializeComponent();
-    }
+    public TriangleView() => InitializeComponent();
 }

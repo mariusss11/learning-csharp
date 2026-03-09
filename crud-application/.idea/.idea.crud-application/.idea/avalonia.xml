@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="crud-application/App.axaml" value="crud-application/crud-application.csproj" />
+        <entry key="crud-application/Views/CustomersWindow.axaml" value="crud-application/crud-application.csproj" />
+        <entry key="crud-application/Views/DashboardView.axaml" value="crud-application/crud-application.csproj" />
+        <entry key="crud-application/Views/LoginView.axaml" value="crud-application/crud-application.csproj" />
+        <entry key="crud-application/Views/LoginWindow.axaml" value="crud-application/crud-application.csproj" />
+        <entry key="crud-application/Views/MainWindow.axaml" value="crud-application/crud-application.csproj" />
+        <entry key="crud-application/Views/RegisterView.axaml" value="crud-application/crud-application.csproj" />
+        <entry key="crud-application/Views/RegisterWindow.axaml" value="crud-application/crud-application.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

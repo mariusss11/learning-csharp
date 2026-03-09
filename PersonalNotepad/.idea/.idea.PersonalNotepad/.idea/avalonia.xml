@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="PersonalNotepad/App.axaml" value="PersonalNotepad/PersonalNotepad.csproj" />
+        <entry key="PersonalNotepad/Views/MainWindow.axaml" value="PersonalNotepad/PersonalNotepad.csproj" />
+        <entry key="PersonalNotepad/Views/TestWindow.axaml" value="PersonalNotepad/PersonalNotepad.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

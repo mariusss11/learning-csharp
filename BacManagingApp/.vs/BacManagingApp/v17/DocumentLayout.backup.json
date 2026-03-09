@@ -1,0 +1,76 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Informatie\\Marius\\CEITI\\Programare\\c#\\Anul 3\\BacManagingApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3DA062FC-92B7-4F7F-BA13-9CF38CAF4BFC}|BacManagingApp.csproj|d:\\informatie\\marius\\ceiti\\programare\\c#\\anul 3\\bacmanagingapp\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DA062FC-92B7-4F7F-BA13-9CF38CAF4BFC}|BacManagingApp.csproj|solutionrelative:registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DA062FC-92B7-4F7F-BA13-9CF38CAF4BFC}|BacManagingApp.csproj|d:\\informatie\\marius\\ceiti\\programare\\c#\\anul 3\\bacmanagingapp\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3DA062FC-92B7-4F7F-BA13-9CF38CAF4BFC}|BacManagingApp.csproj|solutionrelative:registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3DA062FC-92B7-4F7F-BA13-9CF38CAF4BFC}|BacManagingApp.csproj|d:\\informatie\\marius\\ceiti\\programare\\c#\\anul 3\\bacmanagingapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3DA062FC-92B7-4F7F-BA13-9CF38CAF4BFC}|BacManagingApp.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 163,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterForm.cs [Design]",
+              "DocumentMoniker": "D:\\Informatie\\Marius\\CEITI\\Programare\\c#\\Anul 3\\BacManagingApp\\RegisterForm.cs",
+              "RelativeDocumentMoniker": "RegisterForm.cs",
+              "ToolTip": "D:\\Informatie\\Marius\\CEITI\\Programare\\c#\\Anul 3\\BacManagingApp\\RegisterForm.cs [Design]",
+              "RelativeToolTip": "RegisterForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T09:58:27.393Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "D:\\Informatie\\Marius\\CEITI\\Programare\\c#\\Anul 3\\BacManagingApp\\LoginForm.cs",
+              "RelativeDocumentMoniker": "LoginForm.cs",
+              "ToolTip": "D:\\Informatie\\Marius\\CEITI\\Programare\\c#\\Anul 3\\BacManagingApp\\LoginForm.cs",
+              "RelativeToolTip": "LoginForm.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAIAwwDcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T09:47:17.655Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 237,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegisterForm.cs",
+              "DocumentMoniker": "D:\\Informatie\\Marius\\CEITI\\Programare\\c#\\Anul 3\\BacManagingApp\\RegisterForm.cs",
+              "RelativeDocumentMoniker": "RegisterForm.cs",
+              "ToolTip": "D:\\Informatie\\Marius\\CEITI\\Programare\\c#\\Anul 3\\BacManagingApp\\RegisterForm.cs",
+              "RelativeToolTip": "RegisterForm.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAIwHwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-02T10:25:13.808Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
